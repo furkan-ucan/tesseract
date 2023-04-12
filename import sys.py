@@ -65,9 +65,10 @@ class MainWindow(QMainWindow):
                 # Resmi işle
                 image.save("temp.png", "png")
                 text = pytesseract.image_to_string("temp.png", lang="tur+eng")
-
                 # Metni düzenleyicide göster
                 self.text_edit.setPlainText(text)
+                # Metni kopyala
+                pyperclip.copy(text)
 
                 # Metni işleme
                 self.process_text(text)
